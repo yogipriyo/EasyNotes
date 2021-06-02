@@ -1,0 +1,491 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		21981C5C2667E579003FD7D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21981C5B2667E579003FD7D5 /* AppDelegate.swift */; };
+		21981C5E2667E579003FD7D5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21981C5D2667E579003FD7D5 /* SceneDelegate.swift */; };
+		21981C602667E579003FD7D5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21981C5F2667E579003FD7D5 /* ViewController.swift */; };
+		21981C632667E579003FD7D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21981C612667E579003FD7D5 /* Main.storyboard */; };
+		21981C662667E579003FD7D5 /* EasyNotes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 21981C642667E579003FD7D5 /* EasyNotes.xcdatamodeld */; };
+		21981C682667E57D003FD7D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21981C672667E57D003FD7D5 /* Assets.xcassets */; };
+		21981C6B2667E57D003FD7D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21981C692667E57D003FD7D5 /* LaunchScreen.storyboard */; };
+		21981C762667E57E003FD7D5 /* EasyNotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21981C752667E57E003FD7D5 /* EasyNotesTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		21981C722667E57E003FD7D5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21981C502667E578003FD7D5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 21981C572667E578003FD7D5;
+			remoteInfo = EasyNotes;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		21981C582667E578003FD7D5 /* EasyNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		21981C5B2667E579003FD7D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		21981C5D2667E579003FD7D5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		21981C5F2667E579003FD7D5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		21981C622667E579003FD7D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		21981C652667E579003FD7D5 /* EasyNotes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EasyNotes.xcdatamodel; sourceTree = "<group>"; };
+		21981C672667E57D003FD7D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		21981C6A2667E57D003FD7D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		21981C6C2667E57D003FD7D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21981C712667E57E003FD7D5 /* EasyNotesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyNotesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		21981C752667E57E003FD7D5 /* EasyNotesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyNotesTests.swift; sourceTree = "<group>"; };
+		21981C772667E57E003FD7D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		21981C552667E578003FD7D5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21981C6E2667E57E003FD7D5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		21981C4F2667E578003FD7D5 = {
+			isa = PBXGroup;
+			children = (
+				21981C5A2667E578003FD7D5 /* EasyNotes */,
+				21981C742667E57E003FD7D5 /* EasyNotesTests */,
+				21981C592667E578003FD7D5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		21981C592667E578003FD7D5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				21981C582667E578003FD7D5 /* EasyNotes.app */,
+				21981C712667E57E003FD7D5 /* EasyNotesTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		21981C5A2667E578003FD7D5 /* EasyNotes */ = {
+			isa = PBXGroup;
+			children = (
+				21981C5B2667E579003FD7D5 /* AppDelegate.swift */,
+				21981C5D2667E579003FD7D5 /* SceneDelegate.swift */,
+				21981C5F2667E579003FD7D5 /* ViewController.swift */,
+				21981C612667E579003FD7D5 /* Main.storyboard */,
+				21981C672667E57D003FD7D5 /* Assets.xcassets */,
+				21981C692667E57D003FD7D5 /* LaunchScreen.storyboard */,
+				21981C6C2667E57D003FD7D5 /* Info.plist */,
+				21981C642667E579003FD7D5 /* EasyNotes.xcdatamodeld */,
+			);
+			path = EasyNotes;
+			sourceTree = "<group>";
+		};
+		21981C742667E57E003FD7D5 /* EasyNotesTests */ = {
+			isa = PBXGroup;
+			children = (
+				21981C752667E57E003FD7D5 /* EasyNotesTests.swift */,
+				21981C772667E57E003FD7D5 /* Info.plist */,
+			);
+			path = EasyNotesTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		21981C572667E578003FD7D5 /* EasyNotes */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21981C7A2667E57E003FD7D5 /* Build configuration list for PBXNativeTarget "EasyNotes" */;
+			buildPhases = (
+				21981C542667E578003FD7D5 /* Sources */,
+				21981C552667E578003FD7D5 /* Frameworks */,
+				21981C562667E578003FD7D5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EasyNotes;
+			productName = EasyNotes;
+			productReference = 21981C582667E578003FD7D5 /* EasyNotes.app */;
+			productType = "com.apple.product-type.application";
+		};
+		21981C702667E57E003FD7D5 /* EasyNotesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21981C7D2667E57E003FD7D5 /* Build configuration list for PBXNativeTarget "EasyNotesTests" */;
+			buildPhases = (
+				21981C6D2667E57E003FD7D5 /* Sources */,
+				21981C6E2667E57E003FD7D5 /* Frameworks */,
+				21981C6F2667E57E003FD7D5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				21981C732667E57E003FD7D5 /* PBXTargetDependency */,
+			);
+			name = EasyNotesTests;
+			productName = EasyNotesTests;
+			productReference = 21981C712667E57E003FD7D5 /* EasyNotesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		21981C502667E578003FD7D5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1160;
+				LastUpgradeCheck = 1160;
+				ORGANIZATIONNAME = "Yogi Priyo Prayogo";
+				TargetAttributes = {
+					21981C572667E578003FD7D5 = {
+						CreatedOnToolsVersion = 11.6;
+					};
+					21981C702667E57E003FD7D5 = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = 21981C572667E578003FD7D5;
+					};
+				};
+			};
+			buildConfigurationList = 21981C532667E578003FD7D5 /* Build configuration list for PBXProject "EasyNotes" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 21981C4F2667E578003FD7D5;
+			productRefGroup = 21981C592667E578003FD7D5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				21981C572667E578003FD7D5 /* EasyNotes */,
+				21981C702667E57E003FD7D5 /* EasyNotesTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		21981C562667E578003FD7D5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21981C6B2667E57D003FD7D5 /* LaunchScreen.storyboard in Resources */,
+				21981C682667E57D003FD7D5 /* Assets.xcassets in Resources */,
+				21981C632667E579003FD7D5 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21981C6F2667E57E003FD7D5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		21981C542667E578003FD7D5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21981C602667E579003FD7D5 /* ViewController.swift in Sources */,
+				21981C662667E579003FD7D5 /* EasyNotes.xcdatamodeld in Sources */,
+				21981C5C2667E579003FD7D5 /* AppDelegate.swift in Sources */,
+				21981C5E2667E579003FD7D5 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21981C6D2667E57E003FD7D5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21981C762667E57E003FD7D5 /* EasyNotesTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		21981C732667E57E003FD7D5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 21981C572667E578003FD7D5 /* EasyNotes */;
+			targetProxy = 21981C722667E57E003FD7D5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		21981C612667E579003FD7D5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				21981C622667E579003FD7D5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		21981C692667E57D003FD7D5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				21981C6A2667E57D003FD7D5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		21981C782667E57E003FD7D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		21981C792667E57E003FD7D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		21981C7B2667E57E003FD7D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TPU4US8598;
+				INFOPLIST_FILE = EasyNotes/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.seton.ysae.igoy.ios.EasyNotes;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		21981C7C2667E57E003FD7D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TPU4US8598;
+				INFOPLIST_FILE = EasyNotes/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.seton.ysae.igoy.ios.EasyNotes;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		21981C7E2667E57E003FD7D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TPU4US8598;
+				INFOPLIST_FILE = EasyNotesTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.seton.ysae.igoy.ios.EasyNotesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EasyNotes.app/EasyNotes";
+			};
+			name = Debug;
+		};
+		21981C7F2667E57E003FD7D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TPU4US8598;
+				INFOPLIST_FILE = EasyNotesTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.seton.ysae.igoy.ios.EasyNotesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EasyNotes.app/EasyNotes";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		21981C532667E578003FD7D5 /* Build configuration list for PBXProject "EasyNotes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21981C782667E57E003FD7D5 /* Debug */,
+				21981C792667E57E003FD7D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		21981C7A2667E57E003FD7D5 /* Build configuration list for PBXNativeTarget "EasyNotes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21981C7B2667E57E003FD7D5 /* Debug */,
+				21981C7C2667E57E003FD7D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		21981C7D2667E57E003FD7D5 /* Build configuration list for PBXNativeTarget "EasyNotesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21981C7E2667E57E003FD7D5 /* Debug */,
+				21981C7F2667E57E003FD7D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		21981C642667E579003FD7D5 /* EasyNotes.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				21981C652667E579003FD7D5 /* EasyNotes.xcdatamodel */,
+			);
+			currentVersion = 21981C652667E579003FD7D5 /* EasyNotes.xcdatamodel */;
+			path = EasyNotes.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 21981C502667E578003FD7D5 /* Project object */;
+}
