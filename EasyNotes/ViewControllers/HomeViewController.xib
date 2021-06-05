@@ -24,6 +24,14 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MsT-mQ-zhH">
+                    <rect key="frame" x="330" y="12" width="72" height="33"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="Add Note"/>
+                    <connections>
+                        <action selector="addNoteTapped:" destination="-1" eventType="touchUpInside" id="GAn-3t-keR"/>
+                    </connections>
+                </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wXr-l2-NXh">
                     <rect key="frame" x="12" y="45" width="390" height="679"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -32,11 +40,13 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="wXr-l2-NXh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="4OZ-VG-hiN"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MsT-mQ-zhH" secondAttribute="trailing" constant="12" id="JSB-ZW-W2e"/>
                 <constraint firstItem="nEG-wh-8ZU" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="12" id="K31-Rd-cLu"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wXr-l2-NXh" secondAttribute="trailing" constant="12" id="bbQ-dz-EBQ"/>
                 <constraint firstItem="wXr-l2-NXh" firstAttribute="top" secondItem="nEG-wh-8ZU" secondAttribute="bottom" constant="12" id="nFE-1C-Vgm"/>
                 <constraint firstItem="nEG-wh-8ZU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="owg-B1-9K8"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="wXr-l2-NXh" secondAttribute="bottom" constant="12" id="yC8-Of-OQQ"/>
+                <constraint firstItem="MsT-mQ-zhH" firstAttribute="top" secondItem="nEG-wh-8ZU" secondAttribute="top" id="ydq-hr-Yg2"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="139" y="125"/>
