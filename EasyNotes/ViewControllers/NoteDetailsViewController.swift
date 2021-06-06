@@ -30,6 +30,7 @@ class NoteDetailsViewController: UIViewController, UITextViewDelegate, WKNavigat
     @IBOutlet weak var bottomContainer: UIView!
     
     var textMode: TextMode = .normal
+    var noteDetails: NSManagedObject?
     
     lazy var webView: WKWebView = {
         let webConfiguration = WKWebViewConfiguration()
@@ -43,6 +44,12 @@ class NoteDetailsViewController: UIViewController, UITextViewDelegate, WKNavigat
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        setupUI()
+        setupContent()
+    }
+    
+    func setupUI() {
         self.title = "Note Details"
         self.textViewEditor.delegate = self
         self.contentContainer.layer.borderWidth = 1
@@ -50,8 +57,14 @@ class NoteDetailsViewController: UIViewController, UITextViewDelegate, WKNavigat
         self.contentContainer.layer.cornerRadius = 10
     }
     
+    func setupContent() {
+        guard let noteDetails = noteDetails else { return }
+        self.titleTextField.text = noteDetails.value(forKey: "title") as? String
+        self.textViewEditor.text = noteDetails.value(forKey: "content") as? String
+    }
+    
     func textViewDidChange(_ textView: UITextView) { //Handle the text changes here
-//        print(textView.text)
+        
     }
     
     func processString(content: String) {
@@ -67,7 +80,11 @@ class NoteDetailsViewController: UIViewController, UITextViewDelegate, WKNavigat
     }
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
-        saveData()
+        if let noteDetails = self.noteDetails {
+            updateNote(noteDetails: noteDetails)
+        } else {
+            addNote()
+        }
     }
     
     func setupTextMode(textMode: TextMode) {
@@ -88,32 +105,52 @@ class NoteDetailsViewController: UIViewController, UITextViewDelegate, WKNavigat
         }
     }
     
-    func saveData() {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
+    func addNote() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         
-        // 1
         let managedContext = appDelegate.persistentContainer.viewContext
-        
-        // 2
         let entity = NSEntityDescription.entity(forEntityName: "Note", in: managedContext)!
         
         let note = NSManagedObject(entity: entity, insertInto: managedContext)
-//        let note = EasyNote(title: self.titleTextField.text ?? "Empty title", content: self.textViewEditor.text, insertIntoManagedObjectContext: managedContext)
-        
-        // 3
-//        person.setValue(name, forKeyPath: "name")
+        let randomInt = Int.random(in: 1..<5)
+        note.setValue(randomInt, forKeyPath: "id")
         note.setValue(self.titleTextField.text ?? "Empty title", forKey: "title")
         note.setValue(self.textViewEditor.text, forKey: "content")
         
-        // 4
         do {
-          try managedContext.save()
-//          people.append(person)
+            try managedContext.save()
             print("save ok")
         } catch let error as NSError {
-          print("Could not save. \(error), \(error.userInfo)")
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
+    func updateNote(noteDetails: NSManagedObject?) {
+        var context: NSManagedObjectContext {
+           let appDelegate = UIApplication.shared.delegate as! AppDelegate
+           return appDelegate.persistentContainer.viewContext
+        }
+        
+        let note: NoteEntity!
+        let fetchNote: NSFetchRequest<NoteEntity> = NoteEntity.fetchRequest()
+        fetchNote.predicate = NSPredicate(format: "id = %d", noteDetails?.value(forKey: "id") as! Int)
+
+        let results = try? context.fetch(fetchNote)
+
+        if results?.count == 0 {
+            note = NoteEntity(context: context)
+        } else {
+            note = results?.first
+        }
+
+        note.title = self.titleTextField.text ?? "Empty Title"
+        note.content = self.textViewEditor.text
+        
+        do {
+            try context.save()
+            print("update ok")
+        } catch let error as NSError {
+            print("Could not update. \(error), \(error.userInfo)")
         }
     }
 }

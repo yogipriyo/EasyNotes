@@ -32,24 +32,18 @@ final class HomeViewController: UIViewController, UITableViewDelegate, UITableVi
     
     // MARK: - Private functions
     private func fecthData() {
-        //1
-        guard let appDelegate =
-          UIApplication.shared.delegate as? AppDelegate else {
+
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
         
-        let managedContext =
-          appDelegate.persistentContainer.viewContext
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Note")
         
-        //2
-        let fetchRequest =
-          NSFetchRequest<NSManagedObject>(entityName: "Note")
-        
-        //3
         do {
-          noteArray = try managedContext.fetch(fetchRequest)
+            noteArray = try managedContext.fetch(fetchRequest)
         } catch let error as NSError {
-          print("Could not fetch. \(error), \(error.userInfo)")
+            print("Could not fetch. \(error), \(error.userInfo)")
         }
     }
     
@@ -67,8 +61,9 @@ final class HomeViewController: UIViewController, UITableViewDelegate, UITableVi
         notesTableView.reloadData()
     }
     
-    private func goToDetailNote() {
+    private func goToDetailNote(noteDetails: NSManagedObject? = nil) {
         let noteDetailsVC: NoteDetailsViewController = NoteDetailsViewController()
+        noteDetailsVC.noteDetails = noteDetails
         self.navigationController?.pushViewController(noteDetailsVC, animated: true)
     }
     
@@ -84,6 +79,7 @@ final class HomeViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "NoteTableViewCell") as? NoteTableViewCell {
+            cell.setupContent(title: self.noteArray[indexPath.row].value(forKey: "title") as! String)
             return cell
         }
         
@@ -91,10 +87,10 @@ final class HomeViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        goToDetailNote()
+        goToDetailNote(noteDetails: self.noteArray[indexPath.row])
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return 50
     }
 }
