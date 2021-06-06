@@ -60,7 +60,7 @@ class NoteDetailsViewController: UIViewController, UITextViewDelegate, WKNavigat
     func setupContent() {
         guard let noteDetails = noteDetails else { return }
         self.titleTextField.text = noteDetails.value(forKey: "title") as? String
-        self.textViewEditor.text = noteDetails.value(forKey: "content") as? String
+        self.textViewEditor.attributedText = noteDetails.value(forKey: "content") as? NSAttributedString
     }
     
     func textViewDidChange(_ textView: UITextView) { //Handle the text changes here
@@ -115,7 +115,7 @@ class NoteDetailsViewController: UIViewController, UITextViewDelegate, WKNavigat
         let randomInt = Int.random(in: 1..<5)
         note.setValue(randomInt, forKeyPath: "id")
         note.setValue(self.titleTextField.text ?? "Empty title", forKey: "title")
-        note.setValue(self.textViewEditor.text, forKey: "content")
+        note.setValue(self.textViewEditor.attributedText, forKey: "content")
         
         do {
             try managedContext.save()
@@ -144,7 +144,7 @@ class NoteDetailsViewController: UIViewController, UITextViewDelegate, WKNavigat
         }
 
         note.title = self.titleTextField.text ?? "Empty Title"
-        note.content = self.textViewEditor.text
+        note.content = self.textViewEditor.attributedText
         
         do {
             try context.save()
