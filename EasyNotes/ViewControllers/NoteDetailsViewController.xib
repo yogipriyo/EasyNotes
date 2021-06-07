@@ -87,12 +87,27 @@
                                         <action selector="italicButtonTapped:" destination="-1" eventType="touchUpInside" id="UvT-uB-iCB"/>
                                     </connections>
                                 </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q7i-5X-yh4">
+                                    <rect key="frame" x="124" y="10" width="90" height="30"/>
+                                    <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="90" id="L8u-d6-s1Z"/>
+                                    </constraints>
+                                    <state key="normal" title="Underscore">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="underscoreButtonTapped:" destination="-1" eventType="touchUpInside" id="ghk-Ld-9zJ"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="thW-NQ-O3n" firstAttribute="centerY" secondItem="dF2-Xk-Q3h" secondAttribute="centerY" id="ETW-P5-hHe"/>
                                 <constraint firstItem="dF2-Xk-Q3h" firstAttribute="centerY" secondItem="6pm-2I-CDK" secondAttribute="centerY" id="OKv-WS-Ppi"/>
                                 <constraint firstItem="thW-NQ-O3n" firstAttribute="leading" secondItem="dF2-Xk-Q3h" secondAttribute="trailing" constant="12" id="P01-L1-rj2"/>
+                                <constraint firstItem="Q7i-5X-yh4" firstAttribute="leading" secondItem="thW-NQ-O3n" secondAttribute="trailing" constant="12" id="Qi6-rI-LuL"/>
+                                <constraint firstItem="Q7i-5X-yh4" firstAttribute="centerY" secondItem="thW-NQ-O3n" secondAttribute="centerY" id="h2J-vJ-XNT"/>
                                 <constraint firstAttribute="height" constant="50" id="iq8-1Y-Acz"/>
                                 <constraint firstItem="dF2-Xk-Q3h" firstAttribute="leading" secondItem="6pm-2I-CDK" secondAttribute="leading" id="jnc-X2-LYP"/>
                             </constraints>

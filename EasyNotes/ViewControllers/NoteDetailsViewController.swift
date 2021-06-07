@@ -79,6 +79,10 @@ class NoteDetailsViewController: UIViewController, UITextViewDelegate, WKNavigat
         setupTextMode(textMode: .italic)
     }
     
+    @IBAction func underscoreButtonTapped(_ sender: UIButton) {
+        setupTextMode(textMode: .underscore)
+    }
+    
     @IBAction func saveButtonTapped(_ sender: UIButton) {
         if let noteDetails = self.noteDetails {
             updateNote(noteDetails: noteDetails)
@@ -92,16 +96,21 @@ class NoteDetailsViewController: UIViewController, UITextViewDelegate, WKNavigat
         
         switch self.textMode {
         case .bold:
-            let attrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 15)]
+            let attrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 17)]
             textViewEditor.typingAttributes = attrs
         case .italic:
-            let attrs = [NSAttributedString.Key.font : UIFont.italicSystemFont(ofSize: 15)]
+            let attrs = [NSAttributedString.Key.font : UIFont.italicSystemFont(ofSize: 17)]
             textViewEditor.typingAttributes = attrs
-//        case .underscore:
-//            let attrs = [NSAttributedString.Key.underlineStyle]
-//            textViewEditor.typingAttributes = attrs
+        case .underscore:
+            let attrs = [
+                NSAttributedString.Key.underlineColor: UIColor.gray,
+                .underlineStyle: NSUnderlineStyle.thick.rawValue | NSUnderlineStyle.single.rawValue,
+                .font: UIFont.systemFont(ofSize: 17)
+                ] as [NSAttributedString.Key : Any]
+            textViewEditor.typingAttributes = attrs
         default:
-            textViewEditor.typingAttributes = [:]
+            let attrs = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 17)]
+            textViewEditor.typingAttributes = attrs
         }
     }
     
