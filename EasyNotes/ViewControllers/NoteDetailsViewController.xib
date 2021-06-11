@@ -9,13 +9,19 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NoteDetailsViewController" customModule="EasyNotes" customModuleProvider="target">
             <connections>
+                <outlet property="boldButton" destination="dF2-Xk-Q3h" id="Bm3-KK-Rzz"/>
                 <outlet property="bottomContainer" destination="rxz-4c-90U" id="sg0-e4-Q4d"/>
                 <outlet property="contentContainer" destination="VhB-a6-ZxB" id="ib8-rE-4tx"/>
+                <outlet property="deleteButton" destination="iIv-eA-flX" id="eTG-Gy-uvC"/>
+                <outlet property="italicButton" destination="thW-NQ-O3n" id="dXs-nv-Myo"/>
                 <outlet property="midContainer" destination="wvh-f8-NqM" id="WWc-J4-PhM"/>
+                <outlet property="saveButton" destination="c8u-RG-4uR" id="qhV-aa-C1D"/>
                 <outlet property="textViewEditor" destination="SjM-LL-2Kr" id="v4f-MO-stU"/>
                 <outlet property="titleTextField" destination="J0O-5r-sKT" id="Vj7-KD-4gP"/>
                 <outlet property="toolbarContainer" destination="6pm-2I-CDK" id="h4V-PT-OQQ"/>
                 <outlet property="topContainer" destination="5XP-Uz-GHX" id="Gce-Gh-M4I"/>
+                <outlet property="ulButton" destination="XCk-6a-UOt" id="Gtc-8K-KzO"/>
+                <outlet property="underscoreButton" destination="Q7i-5X-yh4" id="6Eb-yi-EPk"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -50,7 +56,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wvh-f8-NqM">
-                    <rect key="frame" x="12" y="84" width="390" height="580"/>
+                    <rect key="frame" x="12" y="84" width="390" height="578"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HpJ-7p-eEh">
                             <rect key="frame" x="0.0" y="0.0" width="55" height="18"/>
@@ -97,11 +103,24 @@
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
                                     <connections>
-                                        <action selector="underscoreButtonTapped:" destination="-1" eventType="touchUpInside" id="ghk-Ld-9zJ"/>
+                                        <action selector="underscoreButtonTapped:" destination="-1" eventType="touchUpInside" id="tnc-PV-8xW"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XCk-6a-UOt">
+                                    <rect key="frame" x="226" y="10" width="50" height="30"/>
+                                    <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="50" id="rwc-yQ-ulZ"/>
+                                    </constraints>
+                                    <state key="normal" title="UL">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="unorderedListButtonTapped:" destination="-1" eventType="touchUpInside" id="Dar-Nz-TYR"/>
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="thW-NQ-O3n" firstAttribute="centerY" secondItem="dF2-Xk-Q3h" secondAttribute="centerY" id="ETW-P5-hHe"/>
                                 <constraint firstItem="dF2-Xk-Q3h" firstAttribute="centerY" secondItem="6pm-2I-CDK" secondAttribute="centerY" id="OKv-WS-Ppi"/>
@@ -110,13 +129,15 @@
                                 <constraint firstItem="Q7i-5X-yh4" firstAttribute="centerY" secondItem="thW-NQ-O3n" secondAttribute="centerY" id="h2J-vJ-XNT"/>
                                 <constraint firstAttribute="height" constant="50" id="iq8-1Y-Acz"/>
                                 <constraint firstItem="dF2-Xk-Q3h" firstAttribute="leading" secondItem="6pm-2I-CDK" secondAttribute="leading" id="jnc-X2-LYP"/>
+                                <constraint firstItem="XCk-6a-UOt" firstAttribute="leading" secondItem="Q7i-5X-yh4" secondAttribute="trailing" constant="12" id="qpK-CV-Ag6"/>
+                                <constraint firstItem="XCk-6a-UOt" firstAttribute="centerY" secondItem="Q7i-5X-yh4" secondAttribute="centerY" id="rcQ-5F-HZB"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VhB-a6-ZxB">
-                            <rect key="frame" x="0.0" y="80" width="390" height="488"/>
+                            <rect key="frame" x="0.0" y="80" width="390" height="486"/>
                             <subviews>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SjM-LL-2Kr">
-                                    <rect key="frame" x="0.0" y="0.0" width="390" height="488"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="486"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -146,11 +167,12 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rxz-4c-90U">
-                    <rect key="frame" x="0.0" y="676" width="414" height="60"/>
+                    <rect key="frame" x="0.0" y="674" width="414" height="50"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8u-RG-4uR">
-                            <rect key="frame" x="12" y="6" width="189" height="48"/>
+                            <rect key="frame" x="12" y="0.0" width="189" height="50"/>
                             <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                             <state key="normal" title="Save">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
@@ -159,8 +181,9 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iIv-eA-flX">
-                            <rect key="frame" x="213" y="6" width="189" height="48"/>
+                            <rect key="frame" x="213" y="0.0" width="189" height="50"/>
                             <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                             <state key="normal" title="Delete">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
@@ -170,13 +193,13 @@
                     <constraints>
                         <constraint firstItem="iIv-eA-flX" firstAttribute="height" secondItem="c8u-RG-4uR" secondAttribute="height" id="21H-CP-KtW"/>
                         <constraint firstItem="c8u-RG-4uR" firstAttribute="leading" secondItem="rxz-4c-90U" secondAttribute="leading" constant="12" id="8oG-OZ-AWW"/>
-                        <constraint firstAttribute="height" constant="60" id="945-e5-OcX"/>
+                        <constraint firstAttribute="height" constant="50" id="945-e5-OcX"/>
                         <constraint firstItem="iIv-eA-flX" firstAttribute="centerY" secondItem="c8u-RG-4uR" secondAttribute="centerY" id="9Dw-Ql-Xzc"/>
                         <constraint firstItem="iIv-eA-flX" firstAttribute="leading" secondItem="c8u-RG-4uR" secondAttribute="trailing" constant="12" id="E8u-mT-YhA"/>
                         <constraint firstItem="iIv-eA-flX" firstAttribute="width" secondItem="c8u-RG-4uR" secondAttribute="width" id="Rbq-8J-GEP"/>
                         <constraint firstAttribute="trailing" secondItem="iIv-eA-flX" secondAttribute="trailing" constant="12" id="Rsp-rI-wbO"/>
                         <constraint firstItem="c8u-RG-4uR" firstAttribute="centerY" secondItem="rxz-4c-90U" secondAttribute="centerY" id="haS-4J-Y2K"/>
-                        <constraint firstItem="c8u-RG-4uR" firstAttribute="height" secondItem="rxz-4c-90U" secondAttribute="height" multiplier="0.8" id="n6D-Jn-xpT"/>
+                        <constraint firstItem="c8u-RG-4uR" firstAttribute="height" secondItem="rxz-4c-90U" secondAttribute="height" id="n6D-Jn-xpT"/>
                     </constraints>
                 </view>
             </subviews>
@@ -191,7 +214,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5XP-Uz-GHX" secondAttribute="trailing" constant="12" id="atC-kw-8ba"/>
                 <constraint firstItem="rxz-4c-90U" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="ayS-We-12p"/>
                 <constraint firstItem="rxz-4c-90U" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="h9S-GF-i38"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="rxz-4c-90U" secondAttribute="bottom" id="jNf-sC-g1e"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="rxz-4c-90U" secondAttribute="bottom" constant="12" id="jNf-sC-g1e"/>
                 <constraint firstItem="rxz-4c-90U" firstAttribute="top" secondItem="wvh-f8-NqM" secondAttribute="bottom" constant="12" id="t0p-6l-Jdu"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

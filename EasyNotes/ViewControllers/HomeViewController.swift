@@ -13,12 +13,15 @@ final class HomeViewController: UIViewController, UITableViewDelegate, UITableVi
     
     // MARK: - Outlets & properties
     @IBOutlet weak var notesTableView: UITableView!
+    @IBOutlet weak var addNoteButton: UIButton!
     
     var noteArray: [NSManagedObject] = []
     
     // MARK: - Life Cycles
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        setupUI()
         setupTable()
         fecthData()
     }
@@ -31,6 +34,10 @@ final class HomeViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     // MARK: - Private functions
+    private func setupUI() {
+        addNoteButton.layer.cornerRadius = 5
+    }
+    
     private func fecthData() {
 
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
@@ -42,6 +49,7 @@ final class HomeViewController: UIViewController, UITableViewDelegate, UITableVi
         
         do {
             noteArray = try managedContext.fetch(fetchRequest)
+            notesTableView.reloadData()
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }

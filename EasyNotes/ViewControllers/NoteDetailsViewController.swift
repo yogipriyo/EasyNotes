@@ -24,13 +24,21 @@ class NoteDetailsViewController: UIViewController, UITextViewDelegate, WKNavigat
     @IBOutlet weak var topContainer: UIView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var midContainer: UIView!
+    @IBOutlet weak var boldButton: UIButton!
+    @IBOutlet weak var italicButton: UIButton!
+    @IBOutlet weak var underscoreButton: UIButton!
+    @IBOutlet weak var ulButton: UIButton!
     @IBOutlet weak var contentContainer: UIView!
     @IBOutlet weak var textViewEditor: UITextView!
     @IBOutlet weak var toolbarContainer: UIView!
     @IBOutlet weak var bottomContainer: UIView!
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
     
     var textMode: TextMode = .normal
     var noteDetails: NSManagedObject?
+    let bullet = "•  "
+    var buttonArray: [UIButton] = []
     
     lazy var webView: WKWebView = {
         let webConfiguration = WKWebViewConfiguration()
@@ -55,6 +63,13 @@ class NoteDetailsViewController: UIViewController, UITextViewDelegate, WKNavigat
         self.contentContainer.layer.borderWidth = 1
         self.contentContainer.layer.borderColor = UIColor.gray.cgColor
         self.contentContainer.layer.cornerRadius = 10
+        
+        buttonArray = [boldButton, italicButton, underscoreButton, ulButton]
+        for button in buttonArray {
+            button.layer.cornerRadius = 5
+        }
+        deleteButton.layer.cornerRadius = 5
+        saveButton.layer.cornerRadius = 5
     }
     
     func setupContent() {
@@ -67,20 +82,42 @@ class NoteDetailsViewController: UIViewController, UITextViewDelegate, WKNavigat
         
     }
     
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
+//        if text == "\n" {
+//            if self.textMode == .unorderedList {
+//                textViewEditor.text += bullet
+//            }
+//            return true
+//        }
+        if self.textMode == .unorderedList && text == "\n" {
+            
+        }
+        return true
+    }
+    
     func processString(content: String) {
         
     }
 
     @IBAction func boldButtonTapped(_ sender: UIButton) {
+        highlightButton(target: boldButton)
         setupTextMode(textMode: .bold)
     }
     
     @IBAction func italicButtonTapped(_ sender: UIButton) {
+        highlightButton(target: italicButton)
         setupTextMode(textMode: .italic)
     }
     
     @IBAction func underscoreButtonTapped(_ sender: UIButton) {
+        highlightButton(target: underscoreButton)
         setupTextMode(textMode: .underscore)
+    }
+    
+    @IBAction func unorderedListButtonTapped(_ sender: UIButton) {
+        highlightButton(target: ulButton)
+        setupTextMode(textMode: .unorderedList)
     }
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
@@ -103,15 +140,52 @@ class NoteDetailsViewController: UIViewController, UITextViewDelegate, WKNavigat
             textViewEditor.typingAttributes = attrs
         case .underscore:
             let attrs = [
-                NSAttributedString.Key.underlineColor: UIColor.gray,
+                NSAttributedString.Key.underlineColor: UIColor.black,
                 .underlineStyle: NSUnderlineStyle.thick.rawValue | NSUnderlineStyle.single.rawValue,
                 .font: UIFont.systemFont(ofSize: 17)
                 ] as [NSAttributedString.Key : Any]
             textViewEditor.typingAttributes = attrs
+        case .unorderedList:
+//            let paragraph = NSMutableParagraphStyle()
+////            paragraph.firstLineHeadIndent = 15
+//            paragraph.headIndent = 15
+//
+//            let attrs = [
+//                NSAttributedString.Key.paragraphStyle: paragraph
+//            ]
+//            textViewEditor.typingAttributes = attrs
+//            let bullet = "•  "
+//            let paragraphStyle = NSMutableParagraphStyle()
+//            paragraphStyle.headIndent = (bullet as NSString).size(withAttributes: attributes).width
+//            attributes[.paragraphStyle] = paragraphStyle
+            
+            textViewEditor.text += "\n"+bullet
         default:
+            resetButtonView()
             let attrs = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 17)]
             textViewEditor.typingAttributes = attrs
         }
+    }
+    
+    func highlightButton(target: UIButton) {
+        resetButtonView()
+        target.backgroundColor = .systemGreen
+    }
+    
+    func resetButtonView() {
+        for button in buttonArray {
+            button.backgroundColor = .darkGray
+        }
+    }
+    
+    func displayPopup(title: String, subtitle: String) {
+        let refreshAlert = UIAlertController(title: title, message: subtitle, preferredStyle: UIAlertController.Style.alert)
+
+        refreshAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
+            self.navigationController?.popToRootViewController(animated: true)
+        }))
+        
+        self.present(refreshAlert, animated: true, completion: nil)
     }
     
     func addNote() {
@@ -129,8 +203,10 @@ class NoteDetailsViewController: UIViewController, UITextViewDelegate, WKNavigat
         do {
             try managedContext.save()
             print("save ok")
+            displayPopup(title: "Success!", subtitle: "Note is saved")
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
+            displayPopup(title: "Sorry!", subtitle: "Failed to save note")
         }
     }
     
@@ -158,8 +234,10 @@ class NoteDetailsViewController: UIViewController, UITextViewDelegate, WKNavigat
         do {
             try context.save()
             print("update ok")
+            displayPopup(title: "Success!", subtitle: "Note is updated")
         } catch let error as NSError {
             print("Could not update. \(error), \(error.userInfo)")
+            displayPopup(title: "Sorry!", subtitle: "Failed to update note")
         }
     }
 }

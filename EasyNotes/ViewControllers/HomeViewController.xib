@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="EasyNotes" customModuleProvider="target">
             <connections>
+                <outlet property="addNoteButton" destination="MsT-mQ-zhH" id="Jw6-YG-vBV"/>
                 <outlet property="notesTableView" destination="wXr-l2-NXh" id="GrO-8J-mZ7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -21,13 +22,19 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="List of Notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEG-wh-8ZU">
                     <rect key="frame" x="12" y="12" width="97" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MsT-mQ-zhH">
-                    <rect key="frame" x="330" y="12" width="72" height="33"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <state key="normal" title="Add Note"/>
+                    <rect key="frame" x="327" y="7.6666666666666679" width="75" height="30.000000000000004"/>
+                    <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="75" id="Jne-US-nhN"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="Add Note">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
                     <connections>
                         <action selector="addNoteTapped:" destination="-1" eventType="touchUpInside" id="GAn-3t-keR"/>
                     </connections>
@@ -42,11 +49,11 @@
                 <constraint firstItem="wXr-l2-NXh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="4OZ-VG-hiN"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MsT-mQ-zhH" secondAttribute="trailing" constant="12" id="JSB-ZW-W2e"/>
                 <constraint firstItem="nEG-wh-8ZU" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="12" id="K31-Rd-cLu"/>
+                <constraint firstItem="MsT-mQ-zhH" firstAttribute="centerY" secondItem="nEG-wh-8ZU" secondAttribute="centerY" id="Sug-Yz-HbM"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wXr-l2-NXh" secondAttribute="trailing" constant="12" id="bbQ-dz-EBQ"/>
                 <constraint firstItem="wXr-l2-NXh" firstAttribute="top" secondItem="nEG-wh-8ZU" secondAttribute="bottom" constant="12" id="nFE-1C-Vgm"/>
                 <constraint firstItem="nEG-wh-8ZU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="owg-B1-9K8"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="wXr-l2-NXh" secondAttribute="bottom" constant="12" id="yC8-Of-OQQ"/>
-                <constraint firstItem="MsT-mQ-zhH" firstAttribute="top" secondItem="nEG-wh-8ZU" secondAttribute="top" id="ydq-hr-Yg2"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="139" y="125"/>
