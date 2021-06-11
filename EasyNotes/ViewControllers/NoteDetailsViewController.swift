@@ -128,6 +128,10 @@ class NoteDetailsViewController: UIViewController, UITextViewDelegate, WKNavigat
         }
     }
     
+    @IBAction func deleteButtonTapped(_ sender: UIButton) {
+        deleteNote(noteDetails: noteDetails)
+    }
+    
     func setupTextMode(textMode: TextMode) {
         self.textMode = self.textMode == textMode ? .normal : textMode
         
@@ -239,5 +243,47 @@ class NoteDetailsViewController: UIViewController, UITextViewDelegate, WKNavigat
             print("Could not update. \(error), \(error.userInfo)")
             displayPopup(title: "Sorry!", subtitle: "Failed to update note")
         }
+    }
+    
+    func deleteNote(noteDetails: NSManagedObject?) {
+        var context: NSManagedObjectContext {
+           let appDelegate = UIApplication.shared.delegate as! AppDelegate
+           return appDelegate.persistentContainer.viewContext
+        }
+        
+//        let note: NoteEntity!
+        let fetchNote: NSFetchRequest<NoteEntity> = NoteEntity.fetchRequest()
+        fetchNote.predicate = NSPredicate(format: "id = %d", noteDetails?.value(forKey: "id") as! Int)
+        
+        do {
+            let objects = try context.fetch(fetchNote)
+            for object in objects {
+                context.delete(object)
+            }
+            try context.save()
+            print("delete ok")
+            displayPopup(title: "Success!", subtitle: "Note is deleted")
+        } catch let error as NSError {
+            print("Could not update. \(error), \(error.userInfo)")
+            displayPopup(title: "Sorry!", subtitle: "Failed to delete note")
+        }
+
+//        let results = try? context.fetch(fetchNote)
+//
+//        if results?.count == 0 {
+//            note = NoteEntity(context: context)
+//        } else {
+//            note = results?.first
+//        }
+//
+//        context.delete(note)
+//        do {
+//            try context.save()
+//            print("update ok")
+//            displayPopup(title: "Success!", subtitle: "Note is updated")
+//        } catch let error as NSError {
+//            print("Could not update. \(error), \(error.userInfo)")
+//            displayPopup(title: "Sorry!", subtitle: "Failed to update note")
+//        }
     }
 }
