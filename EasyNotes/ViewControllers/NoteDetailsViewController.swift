@@ -116,7 +116,6 @@ class NoteDetailsViewController: UIViewController, UITextViewDelegate, WKNavigat
     }
     
     @IBAction func unorderedListButtonTapped(_ sender: UIButton) {
-        highlightButton(target: ulButton)
         setupTextMode(textMode: .unorderedList)
     }
     
@@ -150,19 +149,7 @@ class NoteDetailsViewController: UIViewController, UITextViewDelegate, WKNavigat
                 ] as [NSAttributedString.Key : Any]
             textViewEditor.typingAttributes = attrs
         case .unorderedList:
-//            let paragraph = NSMutableParagraphStyle()
-////            paragraph.firstLineHeadIndent = 15
-//            paragraph.headIndent = 15
-//
-//            let attrs = [
-//                NSAttributedString.Key.paragraphStyle: paragraph
-//            ]
-//            textViewEditor.typingAttributes = attrs
-//            let bullet = "•  "
-//            let paragraphStyle = NSMutableParagraphStyle()
-//            paragraphStyle.headIndent = (bullet as NSString).size(withAttributes: attributes).width
-//            attributes[.paragraphStyle] = paragraphStyle
-            
+            self.textMode = .normal
             textViewEditor.text += "\n"+bullet
         default:
             resetButtonView()
