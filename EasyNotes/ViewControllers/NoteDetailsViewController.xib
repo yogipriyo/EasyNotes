@@ -73,7 +73,8 @@
                                     <constraints>
                                         <constraint firstAttribute="width" constant="50" id="5wJ-0D-MTH"/>
                                     </constraints>
-                                    <state key="normal" title="Bold">
+                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                                    <state key="normal" title="B">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
                                     <connections>
@@ -86,6 +87,7 @@
                                     <constraints>
                                         <constraint firstAttribute="width" constant="50" id="XYT-k8-2v3"/>
                                     </constraints>
+                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
                                     <state key="normal" title="Italic">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
@@ -112,7 +114,7 @@
                                     <constraints>
                                         <constraint firstAttribute="width" constant="50" id="rwc-yQ-ulZ"/>
                                     </constraints>
-                                    <state key="normal" title="UL">
+                                    <state key="normal" title="Bullet">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
                                     <connections>

@@ -10,7 +10,7 @@ import UIKit
 import WebKit
 import CoreData
 
-class NoteDetailsViewController: UIViewController, UITextViewDelegate, WKNavigationDelegate {
+final class NoteDetailsViewController: UIViewController, UITextViewDelegate, WKNavigationDelegate {
     
     enum TextMode {
         case normal
@@ -35,7 +35,7 @@ class NoteDetailsViewController: UIViewController, UITextViewDelegate, WKNavigat
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     
-    var textMode: TextMode = .normal
+    var activeTextMode: TextMode = .normal
     var noteDetails: NSManagedObject?
     let bullet = "•  "
     var buttonArray: [UIButton] = []
@@ -52,12 +52,11 @@ class NoteDetailsViewController: UIViewController, UITextViewDelegate, WKNavigat
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
         setupUI()
         setupContent()
     }
     
-    func setupUI() {
+    private func setupUI() {
         self.title = "Note Details"
         self.textViewEditor.delegate = self
         self.contentContainer.layer.borderWidth = 1
@@ -72,32 +71,10 @@ class NoteDetailsViewController: UIViewController, UITextViewDelegate, WKNavigat
         saveButton.layer.cornerRadius = 5
     }
     
-    func setupContent() {
+    private func setupContent() {
         guard let noteDetails = noteDetails else { return }
         self.titleTextField.text = noteDetails.value(forKey: "title") as? String
         self.textViewEditor.attributedText = noteDetails.value(forKey: "content") as? NSAttributedString
-    }
-    
-    func textViewDidChange(_ textView: UITextView) { //Handle the text changes here
-        
-    }
-    
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        
-//        if text == "\n" {
-//            if self.textMode == .unorderedList {
-//                textViewEditor.text += bullet
-//            }
-//            return true
-//        }
-        if self.textMode == .unorderedList && text == "\n" {
-            
-        }
-        return true
-    }
-    
-    func processString(content: String) {
-        
     }
 
     @IBAction func boldButtonTapped(_ sender: UIButton) {
@@ -131,10 +108,10 @@ class NoteDetailsViewController: UIViewController, UITextViewDelegate, WKNavigat
         deleteNote(noteDetails: noteDetails)
     }
     
-    func setupTextMode(textMode: TextMode) {
-        self.textMode = self.textMode == textMode ? .normal : textMode
+    private func setupTextMode(textMode: TextMode) {
+        self.activeTextMode = self.activeTextMode == textMode ? .normal : textMode
         
-        switch self.textMode {
+        switch self.activeTextMode {
         case .bold:
             let attrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 17)]
             textViewEditor.typingAttributes = attrs
@@ -149,27 +126,48 @@ class NoteDetailsViewController: UIViewController, UITextViewDelegate, WKNavigat
                 ] as [NSAttributedString.Key : Any]
             textViewEditor.typingAttributes = attrs
         case .unorderedList:
-            self.textMode = .normal
-            textViewEditor.text += "\n"+bullet
+            bulletProcessing()
         default:
-            resetButtonView()
-            let attrs = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 17)]
-            textViewEditor.typingAttributes = attrs
+            resetStyling()
         }
     }
     
-    func highlightButton(target: UIButton) {
+    private func bulletProcessing() {
+        if let attrStr = textViewEditor.attributedText {
+            let newMutableString = attrStr.mutableCopy() as! NSMutableAttributedString
+            newMutableString.append(
+                createAttributed(string: "\n"+bullet)
+            )
+
+            textViewEditor.attributedText = newMutableString
+            self.activeTextMode = .normal
+            resetButtonView()
+        }
+    }
+    
+    private func createAttributed(string: String) -> NSAttributedString {
+        return NSAttributedString(string: string, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 17)])
+    }
+    
+    private func resetStyling() {
+        resetButtonView()
+        self.activeTextMode = .normal
+        let attrs = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 17)]
+        textViewEditor.typingAttributes = attrs
+    }
+    
+    private func highlightButton(target: UIButton) {
         resetButtonView()
         target.backgroundColor = .systemGreen
     }
     
-    func resetButtonView() {
+    private func resetButtonView() {
         for button in buttonArray {
             button.backgroundColor = .darkGray
         }
     }
     
-    func displayPopup(title: String, subtitle: String) {
+    private func displayPopup(title: String, subtitle: String) {
         let refreshAlert = UIAlertController(title: title, message: subtitle, preferredStyle: UIAlertController.Style.alert)
 
         refreshAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
@@ -179,7 +177,7 @@ class NoteDetailsViewController: UIViewController, UITextViewDelegate, WKNavigat
         self.present(refreshAlert, animated: true, completion: nil)
     }
     
-    func addNote() {
+    private func addNote() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -193,15 +191,13 @@ class NoteDetailsViewController: UIViewController, UITextViewDelegate, WKNavigat
         
         do {
             try managedContext.save()
-            print("save ok")
             displayPopup(title: "Success!", subtitle: "Note is saved")
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
+        } catch _ as NSError {
             displayPopup(title: "Sorry!", subtitle: "Failed to save note")
         }
     }
     
-    func updateNote(noteDetails: NSManagedObject?) {
+    private func updateNote(noteDetails: NSManagedObject?) {
         var context: NSManagedObjectContext {
            let appDelegate = UIApplication.shared.delegate as! AppDelegate
            return appDelegate.persistentContainer.viewContext
@@ -224,21 +220,18 @@ class NoteDetailsViewController: UIViewController, UITextViewDelegate, WKNavigat
         
         do {
             try context.save()
-            print("update ok")
             displayPopup(title: "Success!", subtitle: "Note is updated")
-        } catch let error as NSError {
-            print("Could not update. \(error), \(error.userInfo)")
+        } catch _ as NSError {
             displayPopup(title: "Sorry!", subtitle: "Failed to update note")
         }
     }
     
-    func deleteNote(noteDetails: NSManagedObject?) {
+    private func deleteNote(noteDetails: NSManagedObject?) {
         var context: NSManagedObjectContext {
            let appDelegate = UIApplication.shared.delegate as! AppDelegate
            return appDelegate.persistentContainer.viewContext
         }
         
-//        let note: NoteEntity!
         let fetchNote: NSFetchRequest<NoteEntity> = NoteEntity.fetchRequest()
         fetchNote.predicate = NSPredicate(format: "id = %d", noteDetails?.value(forKey: "id") as! Int)
         
@@ -248,29 +241,9 @@ class NoteDetailsViewController: UIViewController, UITextViewDelegate, WKNavigat
                 context.delete(object)
             }
             try context.save()
-            print("delete ok")
             displayPopup(title: "Success!", subtitle: "Note is deleted")
-        } catch let error as NSError {
-            print("Could not update. \(error), \(error.userInfo)")
+        } catch _ as NSError {
             displayPopup(title: "Sorry!", subtitle: "Failed to delete note")
         }
-
-//        let results = try? context.fetch(fetchNote)
-//
-//        if results?.count == 0 {
-//            note = NoteEntity(context: context)
-//        } else {
-//            note = results?.first
-//        }
-//
-//        context.delete(note)
-//        do {
-//            try context.save()
-//            print("update ok")
-//            displayPopup(title: "Success!", subtitle: "Note is updated")
-//        } catch let error as NSError {
-//            print("Could not update. \(error), \(error.userInfo)")
-//            displayPopup(title: "Sorry!", subtitle: "Failed to update note")
-//        }
     }
 }

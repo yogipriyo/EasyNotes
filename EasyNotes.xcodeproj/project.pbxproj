@@ -25,8 +25,6 @@
 		21981C91266A80C0003FD7D5 /* NoteDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21981C8E266A80C0003FD7D5 /* NoteDetailsViewController.swift */; };
 		21981C92266A80C0003FD7D5 /* NoteDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21981C8F266A80C0003FD7D5 /* NoteDetailsViewController.xib */; };
 		21981C93266A80C0003FD7D5 /* NoteDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21981C8F266A80C0003FD7D5 /* NoteDetailsViewController.xib */; };
-		21981C95266A9F71003FD7D5 /* RichTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21981C94266A9F71003FD7D5 /* RichTextEditor.swift */; };
-		21981C96266A9F71003FD7D5 /* RichTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21981C94266A9F71003FD7D5 /* RichTextEditor.swift */; };
 		21981C99266BEF80003FD7D5 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21981C98266BEF80003FD7D5 /* Note.swift */; };
 		21981C9A266BEF80003FD7D5 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21981C98266BEF80003FD7D5 /* Note.swift */; };
 /* End PBXBuildFile section */
@@ -58,7 +56,6 @@
 		21981C89266A2FD7003FD7D5 /* NoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteTableViewCell.xib; sourceTree = "<group>"; };
 		21981C8E266A80C0003FD7D5 /* NoteDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailsViewController.swift; sourceTree = "<group>"; };
 		21981C8F266A80C0003FD7D5 /* NoteDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteDetailsViewController.xib; sourceTree = "<group>"; };
-		21981C94266A9F71003FD7D5 /* RichTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichTextEditor.swift; sourceTree = "<group>"; };
 		21981C98266BEF80003FD7D5 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -139,7 +136,6 @@
 			children = (
 				21981C88266A2FD7003FD7D5 /* NoteTableViewCell.swift */,
 				21981C89266A2FD7003FD7D5 /* NoteTableViewCell.xib */,
-				21981C94266A9F71003FD7D5 /* RichTextEditor.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -259,7 +255,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				21981C662667E579003FD7D5 /* EasyNotes.xcdatamodeld in Sources */,
-				21981C95266A9F71003FD7D5 /* RichTextEditor.swift in Sources */,
 				21981C5C2667E579003FD7D5 /* AppDelegate.swift in Sources */,
 				21981C99266BEF80003FD7D5 /* Note.swift in Sources */,
 				21981C5E2667E579003FD7D5 /* SceneDelegate.swift in Sources */,
@@ -276,7 +271,6 @@
 				21981C762667E57E003FD7D5 /* EasyNotesTests.swift in Sources */,
 				21981C91266A80C0003FD7D5 /* NoteDetailsViewController.swift in Sources */,
 				21981C8426693686003FD7D5 /* HomeViewController.swift in Sources */,
-				21981C96266A9F71003FD7D5 /* RichTextEditor.swift in Sources */,
 				21981C8B266A2FD7003FD7D5 /* NoteTableViewCell.swift in Sources */,
 				21981C9A266BEF80003FD7D5 /* Note.swift in Sources */,
 			);

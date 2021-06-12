@@ -9,14 +9,10 @@
 import CoreData
 
 class EasyNote: NSManagedObject {
+    
+    // MARK: - Note: still unusable due to time limit
     var title: String?
     var content: String?
-    
-//    init(title: String, content: String) {
-//        super.init()
-//        self.title = title
-//        self.content = content
-//    }
     
     convenience init(title: String, content: String, insertIntoManagedObjectContext context: NSManagedObjectContext!) {
         let entity = NSEntityDescription.entity(forEntityName: "Note", in: context)!
