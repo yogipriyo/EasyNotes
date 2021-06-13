@@ -9,7 +9,8 @@ EasyNote was build organically without depending on any 3rd party library, so it
 - Bold the text
 - Italic the text
 - Underline the text
-- Add bullet to the list. Tap on the list button everytime you need to add the bullte
+- Add bullet for the list. Tap on the list button everytime you need to add the bullet.
+- Add numbering for. Tap on the list button everytime you need to add the numbering. The numbering will be reset when you tap on the bullet button or return button.
 
 ## Tech
 EasyNote uses native iOS mobile application development technology:
