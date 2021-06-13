@@ -28,6 +28,7 @@ final class NoteDetailsViewController: UIViewController, UITextViewDelegate, WKN
     @IBOutlet weak var italicButton: UIButton!
     @IBOutlet weak var underscoreButton: UIButton!
     @IBOutlet weak var ulButton: UIButton!
+    @IBOutlet weak var olButton: UIButton!
     @IBOutlet weak var contentContainer: UIView!
     @IBOutlet weak var textViewEditor: UITextView!
     @IBOutlet weak var toolbarContainer: UIView!
@@ -38,6 +39,7 @@ final class NoteDetailsViewController: UIViewController, UITextViewDelegate, WKN
     var activeTextMode: TextMode = .normal
     var noteDetails: NSManagedObject?
     let bullet = "•  "
+    var currentNumberingValue: Int = 1
     var buttonArray: [UIButton] = []
     
     lazy var webView: WKWebView = {
@@ -63,7 +65,7 @@ final class NoteDetailsViewController: UIViewController, UITextViewDelegate, WKN
         self.contentContainer.layer.borderColor = UIColor.gray.cgColor
         self.contentContainer.layer.cornerRadius = 10
         
-        buttonArray = [boldButton, italicButton, underscoreButton, ulButton]
+        buttonArray = [boldButton, italicButton, underscoreButton, ulButton, olButton]
         for button in buttonArray {
             button.layer.cornerRadius = 5
         }
@@ -94,6 +96,10 @@ final class NoteDetailsViewController: UIViewController, UITextViewDelegate, WKN
     
     @IBAction func unorderedListButtonTapped(_ sender: UIButton) {
         setupTextMode(textMode: .unorderedList)
+    }
+    
+    @IBAction func orderedListButtonTapped(_ sender: UIButton) {
+        setupTextMode(textMode: .orderedList)
     }
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
@@ -127,8 +133,24 @@ final class NoteDetailsViewController: UIViewController, UITextViewDelegate, WKN
             textViewEditor.typingAttributes = attrs
         case .unorderedList:
             bulletProcessing()
+        case .orderedList:
+            numberingProcessing()
         default:
             resetStyling()
+        }
+    }
+    
+    private func numberingProcessing() {
+        if let attrStr = textViewEditor.attributedText {
+            let newMutableString = attrStr.mutableCopy() as! NSMutableAttributedString
+            newMutableString.append(
+                createAttributed(string: "\n"+String(currentNumberingValue)+".  ")
+            )
+
+            textViewEditor.attributedText = newMutableString
+            self.activeTextMode = .normal
+            self.currentNumberingValue += 1
+            resetButtonView()
         }
     }
     
@@ -141,6 +163,7 @@ final class NoteDetailsViewController: UIViewController, UITextViewDelegate, WKN
 
             textViewEditor.attributedText = newMutableString
             self.activeTextMode = .normal
+            self.currentNumberingValue = 1
             resetButtonView()
         }
     }
@@ -245,5 +268,10 @@ final class NoteDetailsViewController: UIViewController, UITextViewDelegate, WKN
         } catch _ as NSError {
             displayPopup(title: "Sorry!", subtitle: "Failed to delete note")
         }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        self.currentNumberingValue = text == "\n" ? 1 : self.currentNumberingValue
+        return true
     }
 }

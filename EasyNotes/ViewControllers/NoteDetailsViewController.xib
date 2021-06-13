@@ -15,6 +15,7 @@
                 <outlet property="deleteButton" destination="iIv-eA-flX" id="eTG-Gy-uvC"/>
                 <outlet property="italicButton" destination="thW-NQ-O3n" id="dXs-nv-Myo"/>
                 <outlet property="midContainer" destination="wvh-f8-NqM" id="WWc-J4-PhM"/>
+                <outlet property="olButton" destination="FDy-mG-Eqb" id="seQ-ex-39d"/>
                 <outlet property="saveButton" destination="c8u-RG-4uR" id="qhV-aa-C1D"/>
                 <outlet property="textViewEditor" destination="SjM-LL-2Kr" id="v4f-MO-stU"/>
                 <outlet property="titleTextField" destination="J0O-5r-sKT" id="Vj7-KD-4gP"/>
@@ -68,10 +69,10 @@
                             <rect key="frame" x="0.0" y="18" width="390" height="50"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dF2-Xk-Q3h">
-                                    <rect key="frame" x="0.0" y="10" width="50" height="30"/>
+                                    <rect key="frame" x="0.0" y="10" width="40" height="30"/>
                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="50" id="5wJ-0D-MTH"/>
+                                        <constraint firstAttribute="width" constant="40" id="5wJ-0D-MTH"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
                                     <state key="normal" title="B">
@@ -82,7 +83,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thW-NQ-O3n">
-                                    <rect key="frame" x="62" y="10" width="50" height="30"/>
+                                    <rect key="frame" x="48" y="10" width="50" height="30"/>
                                     <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="50" id="XYT-k8-2v3"/>
@@ -96,7 +97,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q7i-5X-yh4">
-                                    <rect key="frame" x="124" y="10" width="90" height="30"/>
+                                    <rect key="frame" x="106" y="10" width="90" height="30"/>
                                     <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="90" id="L8u-d6-s1Z"/>
@@ -109,7 +110,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XCk-6a-UOt">
-                                    <rect key="frame" x="226" y="10" width="50" height="30"/>
+                                    <rect key="frame" x="204" y="10" width="50" height="30"/>
                                     <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="50" id="rwc-yQ-ulZ"/>
@@ -121,18 +122,33 @@
                                         <action selector="unorderedListButtonTapped:" destination="-1" eventType="touchUpInside" id="Dar-Nz-TYR"/>
                                     </connections>
                                 </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FDy-mG-Eqb">
+                                    <rect key="frame" x="262" y="10" width="90" height="30"/>
+                                    <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="90" id="Bmz-km-8Tz"/>
+                                    </constraints>
+                                    <state key="normal" title="Numbering">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="orderedListButtonTapped:" destination="-1" eventType="touchUpInside" id="Efy-3b-hCm"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="thW-NQ-O3n" firstAttribute="centerY" secondItem="dF2-Xk-Q3h" secondAttribute="centerY" id="ETW-P5-hHe"/>
+                                <constraint firstItem="FDy-mG-Eqb" firstAttribute="leading" secondItem="XCk-6a-UOt" secondAttribute="trailing" constant="8" id="FSu-q2-Qtf"/>
                                 <constraint firstItem="dF2-Xk-Q3h" firstAttribute="centerY" secondItem="6pm-2I-CDK" secondAttribute="centerY" id="OKv-WS-Ppi"/>
-                                <constraint firstItem="thW-NQ-O3n" firstAttribute="leading" secondItem="dF2-Xk-Q3h" secondAttribute="trailing" constant="12" id="P01-L1-rj2"/>
-                                <constraint firstItem="Q7i-5X-yh4" firstAttribute="leading" secondItem="thW-NQ-O3n" secondAttribute="trailing" constant="12" id="Qi6-rI-LuL"/>
+                                <constraint firstItem="thW-NQ-O3n" firstAttribute="leading" secondItem="dF2-Xk-Q3h" secondAttribute="trailing" constant="8" id="P01-L1-rj2"/>
+                                <constraint firstItem="Q7i-5X-yh4" firstAttribute="leading" secondItem="thW-NQ-O3n" secondAttribute="trailing" constant="8" id="Qi6-rI-LuL"/>
                                 <constraint firstItem="Q7i-5X-yh4" firstAttribute="centerY" secondItem="thW-NQ-O3n" secondAttribute="centerY" id="h2J-vJ-XNT"/>
                                 <constraint firstAttribute="height" constant="50" id="iq8-1Y-Acz"/>
                                 <constraint firstItem="dF2-Xk-Q3h" firstAttribute="leading" secondItem="6pm-2I-CDK" secondAttribute="leading" id="jnc-X2-LYP"/>
-                                <constraint firstItem="XCk-6a-UOt" firstAttribute="leading" secondItem="Q7i-5X-yh4" secondAttribute="trailing" constant="12" id="qpK-CV-Ag6"/>
+                                <constraint firstItem="XCk-6a-UOt" firstAttribute="leading" secondItem="Q7i-5X-yh4" secondAttribute="trailing" constant="8" id="qpK-CV-Ag6"/>
                                 <constraint firstItem="XCk-6a-UOt" firstAttribute="centerY" secondItem="Q7i-5X-yh4" secondAttribute="centerY" id="rcQ-5F-HZB"/>
+                                <constraint firstItem="FDy-mG-Eqb" firstAttribute="centerY" secondItem="XCk-6a-UOt" secondAttribute="centerY" id="zLa-uC-Qy5"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VhB-a6-ZxB">
